@@ -1,0 +1,157 @@
+<div class="container">
+    <h2>Rental Property</h2>
+    <table class="table table-bordered table-hover">
+        <thead>
+			<tr>
+				<th>Rental Id</th>
+				<th>Owner Id</th>
+				<th>Supervisor Id</th>
+				<th>Street</th>
+				<th>City</th>
+				<th>ZipCode</th>
+				<th>Rooms</th>
+				<th>Rent</th>
+				<th>Status</th>
+			</tr>
+        </thead>
+        <tbody>
+			<tr class="modal-link">
+				<td>{{ rental_property.RENTAL_ID }}</td>
+				<td>{{ rental_property.OWNER_ID }}</td>
+				<td>{{ rental_property.SUPERVISOR_ID }}</td>
+				<td>{{ rental_property.STREET }}</td>
+				<td>{{ rental_property.CIT }}</td>
+				<td>{{ rental_property.ZIPCODE }}</td>
+				<td>{{ rental_property.ROOMS }}</td>
+				<td>{{ rental_property.RENT }}</td>
+				<td>{{ rental_property.STATUS }}</td>
+			</tr>
+        </tbody>
+    </table>
+	<div ng-if="owner">
+		<span ng-if="leases.length == 0">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLease">
+				Add Lease
+			</button>
+		</span>
+		<button type="button" class="btn btn-danger pull-right" ng-click="removeProperty()">
+			Remove Property	
+		</button>
+	</div>
+</div>
+<div class="container">
+    <h2>Leases</h2>
+	<table class="table table-bordered" ng-if="leases.length > 0">
+        <thead>
+        <tr>
+			<th>Lease Id</th> 
+			<th>Rental Id</th> 
+			<th>Renter Name</th> 
+			<th>Home Phone Number</th> 
+			<th>Work Phone Number</th> 
+			<th>Emergency Contact Number</th> 
+			<th>Emergency Contact Name</th> 
+			<th>Start Date</th> 
+			<th>End Date</th> 
+			<th>Deposit</th> 
+			<th>Rent</th> 
+			<th>Supervisors Name</th> 
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="lease in leases">
+			<td>{{ lease.LEASE_ID }}</td>
+			<td>{{ lease.RENTAL_ID }}</td>
+			<td>{{ lease.RENTER_NAME }}</td>
+			<td>{{ lease.HOME_PHONE_NUMBER }}</td>
+			<td>{{ lease.WORK_PHONE_NUMBER }}</td>
+			<td>{{ lease.EMERGENCY_CONTACT_NUMBER }}</td>
+			<td>{{ lease.EMERGENCY_CONTACT_NAME }}</td>
+			<td>{{ lease.START_DATE }}</td>
+			<td>{{ lease.END_DATE }}</td>
+			<td>{{ lease.DEPOSIT }}</td>
+			<td>{{ lease.RENT }}</td>
+			<td>{{ lease.SUPERVISORS_NAME }}</td>
+        </tr>
+        </tbody>
+    </table>
+	<span ng-if="leases.length > 0">
+		<button type="button" class="btn btn-danger pull-right" ng-click="removeLease()">
+			Remove Lease	
+		</button>
+	</span>
+	<div ng-if="leases.length == 0">
+		There are no leases.
+	</div>
+</div>
+<!-- Modal -->
+<div ng-if="owner">
+<div class="modal fade" id="addLease" tabindex="-1" role="dialog" aria-labelledby="leaseLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<form id="addLeaseForm" name="user_form" class="form-horizontal" ng-submit="addLease(renter_name, home_phone, work_phone, emergency_phone, emergency_name, start_date, end_date)">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="leaseLabel">Add Lease</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<h2>Add a Rental Property</h2>
+						<div id="errors" class="alert alert-danger" ng-show="error">
+							Form is invalid. Submission failed.
+						</div>
+						<div class="form-group">
+							<label for="renter_name" class="col-sm-2 control-label">Renter Name</label>
+							<div class="col-sm-10">
+								<input type="text" name="renter_name" class="form-control" ng-model="renter_name" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="home_phone" class="col-sm-2 control-label">Home Phone</label>
+							<div class="col-sm-10">
+								<input type="text" name="home_phone" class="form-control" ng-model="home_phone" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="work_phone" class="col-sm-2 control-label">Work Phone</label>
+							<div class="col-sm-10">
+								<input type="text" name="work_phone" class="form-control" ng-model="work_phone" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="emergency_phone" class="col-sm-2 control-label">Emergency Phone</label>
+							<div class="col-sm-10">
+								<input type="text" name="emergency_phone" class="form-control" ng-model="emergency_phone" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="emergency_name" class="col-sm-2 control-label">Emergency Name</label>
+							<div class="col-sm-10">
+								<input type="text" name="emergency_name" class="form-control" ng-model="emergency_name" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="start_date" class="col-sm-2 control-label">Start Date</label>
+							<div class="col-sm-10">
+								<input type="text" name="start_date" class="form-control" ng-model="start_date" required/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="end_date" class="col-sm-2 control-label">End Date</label>
+							<div class="col-sm-10">
+								<input type="text" name="end_date" class="form-control" ng-model="end_date" required/>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<input type="submit" value="Submit" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Supervisors</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Manager Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="supervisor in supervisors">
+            <td>{{ supervisor.EMPLOYEE_ID }}</td>
+            <td>{{ supervisor.MANAGER_ID }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

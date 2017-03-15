@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>Leases</h2>
+	<table class="table table-bordered" ng-if="leases.length > 0">
+        <thead>
+        <tr>
+			<th>Lease Id</th> 
+			<th>Rental Id</th> 
+			<th>Renter Name</th> 
+			<th>Home Phone Number</th> 
+			<th>Work Phone Number</th> 
+			<th>Emergency Contact Number</th> 
+			<th>Emergency Contact Name</th> 
+			<th>Start Date</th> 
+			<th>End Date</th> 
+			<th>Deposit</th> 
+			<th>Rent</th> 
+			<th>Supervisors Name</th> 
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="lease in leases">
+			<td>{{ lease.LEASE_ID }}</td>
+			<td>{{ lease.RENTAL_ID }}</td>
+			<td>{{ lease.RENTER_NAME }}</td>
+			<td>{{ lease.HOME_PHONE_NUMBER }}</td>
+			<td>{{ lease.WORK_PHONE_NUMBER }}</td>
+			<td>{{ lease.EMERGENCY_CONTACT_NUMBER }}</td>
+			<td>{{ lease.EMERGENCY_CONTACT_NAME }}</td>
+			<td>{{ lease.START_DATE }}</td>
+			<td>{{ lease.END_DATE }}</td>
+			<td>{{ lease.DEPOSIT }}</td>
+			<td>{{ lease.RENT }}</td>
+			<td>{{ lease.SUPERVISORS_NAME }}</td>
+        </tr>
+        </tbody>
+    </table>
+	<div ng-if="leases.length == 0">
+		There are no leases.
+	</div>
+</div>
+

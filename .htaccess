@@ -1,0 +1,22 @@
+RewriteEngine On
+	RewriteBase /~ayen/COEN178/Project/
+	RewriteRule ^api/branch/$ backend/get_list.php
+	RewriteRule ^api/employee/$ backend/get_list.php
+	RewriteRule ^api/manager/$ backend/get_list.php
+	RewriteRule ^api/supervisor/$ backend/get_list.php
+	RewriteRule ^api/rental_property/$ backend/get_list.php
+	RewriteRule ^api/rental_property/([0-9]+)/$ backend/get_detail.php
+	RewriteRule ^api/owner_rental_property/([0-9]+)/$ backend/get_detail.php
+	RewriteRule ^api/lease/$ backend/get_list.php
+	RewriteRule ^api/lease/([0-9]+)/$ backend/get_detail.php
+	RewriteRule ^api/rental_lease/([0-9]+)/$ backend/get_detail.php
+	RewriteRule ^api/property_owner/$ backend/get_list.php
+	RewriteRule ^api/property_owner/([0-9]+)/$ backend/get_detail.php
+	RewriteRule ^api/user_profile/$ backend/get_list.php
+	RewriteRule ^api/login/$ backend/get_list.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ static/partials/index.html
+
+<IfModule mod_php5.c>
+  php_value always_populate_raw_post_data   -1
+</IfModule>

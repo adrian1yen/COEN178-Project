@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Branches</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+			<th>Branch Id</th>
+			<th>Phone Number</th>
+			<th>Street</th>
+			<th>City</th>
+			<th>Zipcode</th>
+			<th>Manager Id </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="branch in branches">
+			<td>{{ branch.BRANCH_ID }}</td>
+			<td>{{ branch.PHONE_NUMBER }}</td>
+			<td>{{ branch.STREET }}</td>
+			<td>{{ branch.CITY }}</td>
+			<td>{{ branch.ZIPCODE }}</td>
+			<td>{{ branch.MANAGER_ID }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

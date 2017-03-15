@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Employees</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Start Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in employees">
+            <td>{{ employee.EMPLOYEE_ID }}</td>
+			<td>{{ employee.NAME}}</td>
+			<td>{{ employee.PHONE_NUMBER}}</td>
+			<td>{{ employee.START_DATE}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

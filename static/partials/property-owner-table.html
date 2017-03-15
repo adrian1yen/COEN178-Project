@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Property Owners</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+			<th>Owner Id</th>
+			<th>Name</th>
+			<th>Street</th>
+			<th>Cit</th>
+			<th>Zipcode</th>
+			<th>Phone Number</th>
+			<th>Fee</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="property_owner in property_owners">
+			<td>{{ property_owner.OWNER_ID }}</td>
+			<td>{{ property_owner.NAME }}</td>
+			<td>{{ property_owner.STREET }}</td>
+			<td>{{ property_owner.CIT }}</td>
+			<td>{{ property_owner.ZIPCODE }}</td>
+			<td>{{ property_owner.PHONE_NUMBER }}</td>
+			<td>{{ property_owner.FEE }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

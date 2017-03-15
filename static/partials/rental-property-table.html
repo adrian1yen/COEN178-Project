@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Rental Properties</h2>
+	<div ng-if="rOwnerId && rental_properties.length > 0">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Rental Id</th>
+					<th>Owner Id</th>
+					<th>Supervisor Id</th>
+					<th>Street</th>
+					<th>City</th>
+					<th>ZipCode</th>
+					<th>Rooms</th>
+					<th>Rent</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+					<tr class="modal-link" ng-repeat="rental_property in rental_properties" ng-click="rentalProperty(rental_property.RENTAL_ID)">
+						<td>{{ rental_property.RENTAL_ID }}</td>
+						<td>{{ rental_property.OWNER_ID }}</td>
+						<td>{{ rental_property.SUPERVISOR_ID }}</td>
+						<td>{{ rental_property.STREET }}</td>
+						<td>{{ rental_property.CIT }}</td>
+						<td>{{ rental_property.ZIPCODE }}</td>
+						<td>{{ rental_property.ROOMS }}</td>
+						<td>{{ rental_property.RENT }}</td>
+						<td>{{ rental_property.STATUS }}</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-if="!rOwnerId && rental_properties.length > 0">
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Rental Id</th>
+					<th>Owner Id</th>
+					<th>Supervisor Id</th>
+					<th>Street</th>
+					<th>City</th>
+					<th>ZipCode</th>
+					<th>Rooms</th>
+					<th>Rent</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="modal-link" ng-repeat="rental_property in rental_properties">
+					<td>{{ rental_property.RENTAL_ID }}</td>
+					<td>{{ rental_property.OWNER_ID }}</td>
+					<td>{{ rental_property.SUPERVISOR_ID }}</td>
+					<td>{{ rental_property.STREET }}</td>
+					<td>{{ rental_property.CIT }}</td>
+					<td>{{ rental_property.ZIPCODE }}</td>
+					<td>{{ rental_property.ROOMS }}</td>
+					<td>{{ rental_property.RENT }}</td>
+					<td>{{ rental_property.STATUS }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-if="rental_properties.length == 0">
+		There are no rental properties.
+	</div>
+</div>
