@@ -35,8 +35,8 @@
 		OCIFreeStatement($sql_statement);
 	}
 
-	$username = 'ayen';
-	$password = 'password12345!';
+	$username = '';
+	$password = '';
 	$conn=oci_connect($username,$password,
 	'//dbserver.engr.scu.edu/db11g');
 	if($conn) {
